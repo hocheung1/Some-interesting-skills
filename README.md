@@ -25,13 +25,25 @@ The example deliberately includes excluded records, demonstrating that unsupport
 
 ## 在 Codex 中快速安装
 
-在 Windows PowerShell 中运行以下命令。它会将此仓库安装为 Codex skill；安装后开启一个新任务即可使用 `modern-us-military-story-collector`。
+### 推荐：直接在 Codex 对话框安装
+
+在 Codex 新任务中发送以下一句话即可，无需手动复制文件或打开终端：
+
+```text
+请使用 skill-installer 从 GitHub 仓库 hocheung1/Some-interesting-skills 的根目录安装 skill，命名为 modern-us-military-story-collector。
+```
+
+安装完成后，新开一个 Codex 任务即可使用 `modern-us-military-story-collector`。
+
+### 备用：PowerShell 安装
+
+如果需要在本机直接安装，可在 Windows PowerShell 中运行：
 
 ```powershell
 $skill = Join-Path $env:USERPROFILE '.codex\skills\modern-us-military-story-collector'; git clone --depth 1 https://github.com/hocheung1/Some-interesting-skills.git $skill
 ```
 
-若已安装过，进入该目录更新即可：
+已安装时，进入该目录更新即可：
 
 ```powershell
 git -C (Join-Path $env:USERPROFILE '.codex\skills\modern-us-military-story-collector') pull --ff-only
