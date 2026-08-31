@@ -1,0 +1,14 @@
+{
+  "claims": [
+    {"id": "c-verified", "text": "Demonstration Person received a service award in 2018.", "event_year": 2018, "core": true, "sources": [
+      {"url": "https://example.mil/award", "publisher": "Example Military Service", "source_type": "official", "original_reporting": true, "is_primary": false, "is_official": true},
+      {"url": "https://independent.example/report", "publisher": "Independent Example News", "source_type": "independent", "original_reporting": true, "is_primary": false, "is_official": false}
+    ]},
+    {"id": "c-unverified", "text": "Demonstration Person rescued a colleague in 1985.", "event_year": 1985, "core": true, "sources": []}
+  ],
+  "photos": [
+    {"id": "p-verified", "asset_url": "https://images.example.mil/full.jpg", "original_page_url": "https://images.example.mil/record", "depicted_person": "Demonstration Person", "caption": "Demonstration Person at the 2018 ceremony.", "photographer": "Example Military Photographer", "capture_date": "2018-06-01", "copyright_status": "Public domain as stated by the originating agency", "identity_evidence_urls": ["https://images.example.mil/record"], "rights_evidence_url": "https://images.example.mil/rights", "related_claim_ids": ["c-verified"]},
+    {"id": "p-rejected", "asset_url": "https://images.example.mil/unknown.jpg", "depicted_person": "Demonstration Person"}
+  ],
+  "conflicts": []
+}

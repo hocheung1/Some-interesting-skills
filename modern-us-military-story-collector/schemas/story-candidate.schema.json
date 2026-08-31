@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Story candidate evidence ledger",
+  "type": "object",
+  "required": ["claims", "photos", "conflicts"],
+  "properties": {
+    "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}},
+    "photos": {"type": "array", "items": {"$ref": "#/$defs/photo"}},
+    "conflicts": {"type": "array", "items": {"$ref": "#/$defs/conflict"}}
+  },
+  "$defs": {
+    "source": {"type": "object", "required": ["url", "publisher", "source_type", "original_reporting", "is_primary", "is_official"], "properties": {"url": {"type": "string", "format": "uri"}, "publisher": {"type": "string"}, "source_type": {"enum": ["official", "primary", "independent", "repost", "social", "unknown"]}, "original_reporting": {"type": "boolean"}, "is_primary": {"type": "boolean"}, "is_official": {"type": "boolean"}}},
+    "claim": {"type": "object", "required": ["id", "text", "core", "sources"], "properties": {"id": {"type": "string"}, "text": {"type": "string"}, "event_year": {"type": ["integer", "null"]}, "core": {"type": "boolean"}, "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}}}},
+    "photo": {"type": "object", "required": ["id", "asset_url"], "properties": {"id": {"type": "string"}, "asset_url": {"type": "string", "format": "uri"}, "original_page_url": {"type": ["string", "null"], "format": "uri"}, "depicted_person": {"type": ["string", "null"]}, "caption": {"type": ["string", "null"]}, "photographer": {"type": ["string", "null"]}, "capture_date": {"type": ["string", "null"]}, "copyright_status": {"type": ["string", "null"]}, "identity_evidence_urls": {"type": "array", "items": {"type": "string", "format": "uri"}}, "rights_evidence_url": {"type": ["string", "null"], "format": "uri"}}},
+    "conflict": {"type": "object", "required": ["claim_id", "description", "source_urls", "resolved"], "properties": {"claim_id": {"type": "string"}, "description": {"type": "string"}, "source_urls": {"type": "array", "items": {"type": "string", "format": "uri"}}, "resolved": {"type": "boolean"}}}
+  }
+}

@@ -1,0 +1,13 @@
+# Endpoints must return JSON. Keep API credentials in environment variables, not here.
+[dvids]
+enabled = true
+search_url = "https://api.dvidshub.net/search"
+api_key_env = "DVIDS_API_KEY"
+
+[[official_sites]]
+name = "defense.gov"
+search_url = "https://www.defense.gov/News/Search/"
+
+[[official_sites]]
+name = "army.mil"
+search_url = "https://www.army.mil/search/"

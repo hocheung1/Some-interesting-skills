@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modern-us-military-story-collector"
+version = "0.1.0"
+description = "Evidence-first collector for modern U.S. military human stories and verified photo leads"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["jsonschema>=4.0"]
+
+[project.scripts]
+us-story-collector = "us_military_story_collector.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
