@@ -1,21 +1,31 @@
+---
+name: modern-us-military-story-collector
+description: Research and verify real modern U.S. military human-interest stories and photos when factual provenance and image rights must be audit-ready.
+metadata:
+  short-description: Verify modern U.S. military stories and photo leads
+---
+
 # Modern U.S. Military Story Collector
 
-Use this skill when researching a real modern U.S. military person, their story, and related images.
+Use this skill for real-person stories and associated images involving the U.S. military. It produces an evidence ledger, a validation result, and a report that excludes unsupported material.
 
-## Operating sequence
+## Essential constraints
 
-1. Set the story window to **1990–present**. Do not search or include World War II or Vietnam unless the requester explicitly opts in.
-2. Discover leads from DVIDS, service/DoD sites, and first-party records. Treat discovery text as a lead only.
-3. Convert each proposed statement into an atomic `Claim` with citations.
-4. For each core claim, require one official/primary record **and** a second source from a different, genuinely independent publisher. Exclude syndicated wire copies, mirrors, and reuse of the first source's reporting.
-5. Record disagreement as a conflict. Do not reconcile it by inference.
-6. For every photo, independently verify: original asset page, subject identity, photographer/creator, capture date, full caption, and rights statement. Identity evidence and rights evidence must be separate fields.
-7. Grade every claim and photo S/A/B/C/D. Only S/A/B claims and fully verified photos are allowed into the final narrative report.
-8. Aim for 5–10 photographs only if that many meet the bar. Return fewer with an explicit gap note instead of padding the set.
+- Default scope is **1990–present**. Do not include World War II or Vietnam unless the requester explicitly opts in.
+- A core fact needs an official/primary source and a genuinely independent second publisher. Reposts, syndication, mirrors, and reused reporting are not independent corroboration.
+- Record conflicts with their sources; do not resolve them by inference.
+- A photo requires its original page, caption, photographer, capture date, rights status, and separately documented evidence identifying the depicted person. A caption is not a licence, and an asset page is not automatically public domain.
+- Apply S/A/B/C/D grades. Only S/A/B claims and fully verified photos enter the final narrative. Aim for 5–10 verified photos, but report fewer rather than pad the result.
 
-## Guardrails
+## Workflow
 
-- Do not turn an allegation, inference, social post, reprint, or unverified caption into a final fact.
-- Do not assume a U.S. government page means every image is public domain; record its actual statement.
-- Do not use a photo of a unit or event as proof that a named person is pictured.
-- Keep machine validation JSON alongside the human report so an editor can audit exclusions.
+1. Use DVIDS, service/DoD sites, and first-party records to discover leads; discovery material is never final evidence on its own.
+2. Turn proposed facts into atomic claims with source records and log conflicts.
+3. Collect photo metadata and record separate identity and rights evidence.
+4. Validate the ledger with `us-story-collector validate <candidate.json>`, then generate the report with `us-story-collector report <candidate.json> --output <report.md>`.
+
+## References
+
+- Read [docs/research-protocol.md](docs/research-protocol.md) for the full grading and conflict rules.
+- Use [schemas/story-candidate.schema.json](schemas/story-candidate.schema.json) for the evidence-ledger format.
+- Start from [examples/story-candidate.json](examples/story-candidate.json) when creating a new ledger.

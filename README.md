@@ -23,6 +23,20 @@ python -m unittest discover -s tests -v
 
 The example deliberately includes excluded records, demonstrating that unsupported material does not enter the final fact body.
 
+## 在 Codex 中快速安装
+
+在 Windows PowerShell 中运行以下命令。它会将此仓库安装为 Codex skill；安装后开启一个新任务即可使用 `modern-us-military-story-collector`。
+
+```powershell
+$skill = Join-Path $env:USERPROFILE '.codex\skills\modern-us-military-story-collector'; git clone --depth 1 https://github.com/hocheung1/Some-interesting-skills.git $skill
+```
+
+若已安装过，进入该目录更新即可：
+
+```powershell
+git -C (Join-Path $env:USERPROFILE '.codex\skills\modern-us-military-story-collector') pull --ff-only
+```
+
 ## Repository layout
 
 - `SKILL.md` — evidence-collection operating procedure.
